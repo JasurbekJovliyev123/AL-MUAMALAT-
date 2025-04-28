@@ -1,6 +1,11 @@
 import React from 'react'
 import { cards } from '../constans'
-import { links } from '../constans'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import { people } from '../constans'
+import { logos } from '../constans';
 const Home = () => {
   return (
    <>
@@ -48,21 +53,75 @@ const Home = () => {
 
        <div className="container pt-[70px]">
           <h3 className='text-center text-[40px] font-bold text-black mb-2.5'>Our Expert Team  </h3>
-          <p className='text-[17px] max-w-[574px] mx-auto text-[#686868] mb-[22px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
+          <p className='text-[17px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
 
-          <div className='max-w-[980px] mt-[22px] rounded-[10px] mb-6 bg-[#D2E6E4] flex items-center mx-auto p-[35px] pr-[81px]'>
-                <img src="./person1.png" alt="person" />
-                <div>
-                   <p className='font-bold text-[28px] mb-9'>Dr. Mezbah Uddin Ahmed</p>
-                    <p className='text-[22px] leading-[30px] text-[#141B34] mb-9'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
 
-                    <div className='flex items-center gap-x-8'>
-                        {links.map((item,index)=>{
-                          return <img className='cursor-pointer' src={item} key={index}/>
-                        })}
+                  <Swiper
+                    modules={[Autoplay]}
+                    slidesPerView={1}
+                    autoplay={{
+                      delay: 4000,
+                      disableOnInteraction: false,
+                    }}
+              loop={true}
+              className="max-w-[980px] mt-[22px] mb-6 mx-auto"
+            >
+              {people.map((person, index) => (
+                <SwiperSlide key={index}>
+                  <div className='rounded-[10px] bg-[#D2E6E4] flex items-center p-[35px] pr-[81px]'>
+                    <img src={person.img} alt="person" className="mr-8" />
+                    <div>
+                      <p className='font-bold text-[28px] mb-9'>{person.name}</p>
+                      <p className='text-[22px] leading-[30px] text-[#141B34] mb-9'>{person.desc}</p>
+                      <div className='flex items-center gap-x-8'>
+                        {person.links.map((link, idx) => (
+                          <img src={link} alt="social" key={idx} className='cursor-pointer' />
+                        ))}
+                      </div>
                     </div>
-                </div>
-          </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+               <h2 className='text-center text-[40px] font-bold text-black mb-[50px] mt-[70px]'>Our Partners and Clients</h2>
+
+            <div>
+            <div className="max-w-[1200px] mx-auto py-8">
+                  <Swiper
+                    modules={[Autoplay]}
+                    slidesPerView={5}
+                    spaceBetween={20}
+                    loop={true}
+                    autoplay={{
+                      delay: 0,
+                      disableOnInteraction: false,
+                    }}
+                    speed={800}
+                    breakpoints={{
+                      320: {
+                        slidesPerView: 2,
+                      },
+                      640: {
+                        slidesPerView: 3,
+                      },
+                      768: {
+                        slidesPerView: 4,
+                      },
+                      1024: {
+                        slidesPerView: 4,
+                      }
+                    }}
+                  >
+                    {logos.map((logo, index) => (
+                      <SwiperSlide key={index}>
+                        <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
+                          <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+      </div>
+            </div>
        </div>
    </>
   )

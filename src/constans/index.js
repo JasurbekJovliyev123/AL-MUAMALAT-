@@ -8,6 +8,34 @@ export const language=[
         title:'Uzb'
     },  
 ]
+export const logos=[
+    './logo1.png',
+    './logo2.png',
+    './logo3.png',
+    './logo4.png',
+    './logo5.png',
+    './logo6.png',
+]
+export const people = [
+    {
+      img: "./person1.png",
+      name: "Dr. Mezbah Uddin Ahmed",
+      desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+      links: ["./telegram.png", "./instagram.png", "./facebook.png","twitter.png"]
+    },
+    {
+      img: "./person1.png",
+      name: "Dr. John Doe",
+      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+      links: ["./telegram.png", "./instagram.png", "./facebook.png","twitter.png"]
+    },
+    {
+      img: "./person1.png",
+      name: "Dr. Jane Smith",
+      desc: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.",
+      links: ["./telegram.png", "./instagram.png", "./facebook.png","twitter.png"]
+    }
+  ];
 
 export const programs=[
     {
