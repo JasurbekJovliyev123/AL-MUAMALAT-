@@ -4,8 +4,8 @@ export const language=[
         title:'ENG'
     },
     {
-        imgUrl:'./rus.png',
-        title:'Rus'
+        imgUrl:'./uzb.svg.png',
+        title:'Uzb'
     },  
 ]
 
