@@ -92,12 +92,12 @@ const Navbar = () => {
                             language.map((item)=>{
                                 return <div onClick={()=>onSelectLanguage(item)} className='flex items-center gap-1 mb-1 cursor-pointer'>
                                      <img className='w-6 h-4' src={item.imgUrl} alt="" />
-                                     <p className='text-[15px] font-semibold uppercase'>{item.title}</p>
+                                     <p className='text-[15px] open-sans font-semibold uppercase'>{item.title}</p>
                                 </div>
                             })
                          }
                     </div>}
-                 <Link to={'/sign'}><button className='w-[110px] h-[38px] rounded-[8px] bg-[#009688] text-white text-[15px] flex items-center justify-center font-semibold cursor-pointer'>Sign in</button>  </Link> 
+                 <Link to={'/sign'}><button className='w-[110px] h-[38px] rounded-[8px] bg-[#009688] text-white text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> 
               </div>
         </div>
     </div>

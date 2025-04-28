@@ -64,9 +64,9 @@ const Login = () => {
                                   onChange={setPhone}
                                   className='w-[454px] px-4 lg:py-[10px] py-[18px] rounded-[8px] border-2 border-[#8F8F8F] focus:border-[#4D90FE] focus:ring-2 focus:ring-[#4D90FE]'
                                   enableSearch
-                                  // inputClass="!pl-[100px] py-2 text-base !w-full"
-                                  // buttonClass="!left-3 !right-auto absolute z-10"
-                                  // containerClass="react-tel-input w-full"
+                                  inputClass="!pl-[100px] py-2 border-none text-base !w-full"
+                                  buttonClass="!left-3 !right-auto border-none absolute z-10"
+                                  containerClass="react-tel-input  w-full"
                                 />
 
                     

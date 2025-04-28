@@ -6,6 +6,8 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import { people } from '../constans'
 import { logos } from '../constans';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 const Home = () => {
   return (
    <>
@@ -19,10 +21,13 @@ const Home = () => {
             </div>
          <div className='container flex items-center'>
           <div>
-              <div className='bg-white max-w-[421px] text-[#252641] py-[10px] mb-10 px-[25px] text-[17px] rounded-[10px]'>
+              <div className='bg-white max-w-[421px] inter text-[#252641] py-[10px] mb-10 px-[25px] text-[17px] rounded-[10px]'>
                 Seeking Knowledge is an Obligation in Islam
               </div>
-              <p className='max-w-[723px] leading-[70px] font-bold text-[58px] text-white'>Enhance Your Understanding of Islamic Ethics with Al-Muamalat</p>
+              <p className='max-w-[723px] leading-[70px] inter font-bold text-[58px] mb-10 text-white'>Enhance Your Understanding of Islamic Ethics with Al-Muamalat</p>
+              <div>
+                  <button className='bg-[#FD661F] inter text-white font-medium text-[16px] w-[244px] rounded-[10px] h-[59px]'>Students’ opnion</button>
+              </div>
           </div>    
             <img src="./person.png" alt="" />
          </div>
@@ -30,8 +35,8 @@ const Home = () => {
 
     <div className='container pt-[100px]'>
         <div className='max-w-[574px] mx-auto mb-[62px]'>
-             <h3 className='text-center text-[40px] font-bold text-black mb-2.5'>Our services </h3>
-             <p className='text-[20px] text-[#686868] font-medium text-center'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
+             <h3 className='text-center text-[40px] font-bold halvetica text-black mb-2.5'>Our services </h3>
+             <p className='text-[20px] text-[#686868] font-medium text-center halvetica'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
         </div>
 
          <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 grid-cols-1 mb-[70px]'>
@@ -39,7 +44,7 @@ const Home = () => {
                 return <div key={card.title} style={{backgroundColor:card.color}} className='max-w-[380px] h-[361px] relative p-[30px] rounded-[10px]'>
                     <div className='flex items-center gap-5 mb-5'>
                         <img className='w-[85px] h-[85px]' src={card.imgurl} alt="img" />
-                        <h4 className='text-[24px] font-bold'>{card.title}</h4>
+                        <h4 className='text-[24px] font-bold open-sans'>{card.title}</h4>
                         
                     </div>
                     <p className='text-[17px] font-normal open-sans mb-9'>{card.subtitle}</p>
@@ -86,42 +91,105 @@ const Home = () => {
                <h2 className='text-center text-[40px] font-bold text-black mb-[50px] mt-[70px]'>Our Partners and Clients</h2>
 
             <div>
-            <div className="max-w-[1200px] mx-auto py-8">
-                  <Swiper
-                    modules={[Autoplay]}
-                    slidesPerView={5}
-                    spaceBetween={20}
-                    loop={true}
-                    autoplay={{
-                      delay: 0,
-                      disableOnInteraction: false,
-                    }}
-                    speed={800}
-                    breakpoints={{
-                      320: {
-                        slidesPerView: 2,
-                      },
-                      640: {
-                        slidesPerView: 3,
-                      },
-                      768: {
-                        slidesPerView: 4,
-                      },
-                      1024: {
-                        slidesPerView: 4,
-                      }
-                    }}
-                  >
-                    {logos.map((logo, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
-                          <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-      </div>
+                    <div className="max-w-[1200px] mx-auto py-8">
+                          <Swiper
+                            modules={[Autoplay]}
+                            slidesPerView={5}
+                            spaceBetween={20}
+                            loop={true}
+                            autoplay={{
+                              delay: 0,
+                              disableOnInteraction: false,
+                            }}
+                            speed={800}
+                            breakpoints={{
+                              320: {
+                                slidesPerView: 2,
+                              },
+                              640: {
+                                slidesPerView: 3,
+                              },
+                              768: {
+                                slidesPerView: 4,
+                              },
+                              1024: {
+                                slidesPerView: 4,
+                              }
+                            }}
+                          >
+                            {logos.map((logo, index) => (
+                              <SwiperSlide key={index}>
+                                <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
+                                  <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
+                                </div>
+                              </SwiperSlide>
+                            ))}
+                          </Swiper>
+              </div>
+
+
+                <div className="max-w-[1200px] mx-auto py-2">
+                            <Swiper
+                              modules={[Autoplay]}
+                              slidesPerView={5}
+                              spaceBetween={20}
+                              loop={true}
+                              autoplay={{
+                                delay: 0,
+                                disableOnInteraction: false,
+                              }}
+                              speed={800}
+                              breakpoints={{
+                                320: {
+                                  slidesPerView: 2,
+                                },
+                                640: {
+                                  slidesPerView: 3,
+                                },
+                                768: {
+                                  slidesPerView: 4,
+                                },
+                                1024: {
+                                  slidesPerView: 4,
+                                }
+                              }}
+                            >
+                              {logos.map((logo, index) => (
+                                <SwiperSlide key={index}>
+                                  <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
+                                    <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
+                                  </div>
+                                </SwiperSlide>
+                              ))}
+                            </Swiper>
+                </div>
+                <h2 className='text-center text-[40px] font-bold text-black mb-4 mt-[70px]'>Our Media</h2>
+                <p className='text-[17px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
+
+                <div className='w-full flex items-center justify-between mb-10'>
+                   <p className='text-[35px] font-medium'>Our media showcase</p>
+                   <div className='flex gap-x-6'>
+                      <p className='w-[50px] h-[50px] rounded-full flex items-center hover:bg-[#009688] text-black hover:text-white justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowLeftLong /></p>
+                      <p className='w-[50px] h-[50px] rounded-full flex hover:bg-[#009688] text-black hover:text-white  items-center justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowRightLong /></p>
+                   </div>
+                </div>
+
+
+
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
        </div>
    </>
   )

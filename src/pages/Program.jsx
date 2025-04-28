@@ -3,7 +3,7 @@ import { titles } from '../constans'
 const Program = () => {
   return (
     <div className='container pt-[70px]'>
-         <p className='text-[#152032] font-bold text-[40px] text-center  mb-5'>International educational programs</p>
+         <p className='text-[#152032] font-bold text-[40px] text-center mb-5'>International educational programs</p>
          <p className='text-[22px] max-w-[542px] mx-auto leading-[30px] text-center text-[#686868] mb-[30px]'>Al Muamalat Education's international study programs offer an in-depth learning experience at leading Islamic financial institutions around the world.</p>
 
          <div className='flex items-center mt-[30px] mb-[70px] gap-x-5'>
@@ -31,7 +31,12 @@ const Program = () => {
             </ul>
             </div>
          </div>
+        
 
+        <h2 className='text-center font-bold text-[40px] mt-[70px]'>Brief information about the course</h2>
+        <div>
+                      
+        </div>
 
          
     </div>
