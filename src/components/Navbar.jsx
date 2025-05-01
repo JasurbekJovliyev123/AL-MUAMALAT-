@@ -41,9 +41,9 @@ const Navbar = () => {
     <div>
         <div className='container py-5 flex justify-between items-center'>
               <NavLink to={'/'}>
-                <img src="/Logo.svg" alt="" />
+                <img className='w-[150px] md:w-[200px] lg:w-[250px]' src="/Logo.svg" alt="" />
               </NavLink>
-              <ul className='flex items-center gap-5'>
+              <ul className='md:flex hidden items-center gap-5'>
                 <li>
                      <NavLink className='open-sans font-semibold text-[#686868]'  to={'/'}>Home</NavLink>
                 </li>
@@ -79,14 +79,14 @@ const Navbar = () => {
                 </li>
               </ul>
                  
-              <div className='flex items-center gap-8'>
+              <div className='flex items-center gap-2 md:gap-8'>
                 <div className='flex items-center gap-1'>
-                        <img className='w-6 h-4' src={languages.imgUrl} alt="img" />
-                        <p className='uppercase'>{languages.title}</p>
-                        {!selectLanguages && <IoIosArrowDown onClick={()=>setSelectLanguages(!selectLanguages)} className='text-xl cursor-pointer'/>}
-                        {selectLanguages && <IoIosArrowUp onClick={()=>setSelectLanguages(!selectLanguages)} className='text-xl cursor-pointer'/>}
+                        <img className='w-5 md:w-6 h-4' src={languages.imgUrl} alt="img" />
+                        <p className='text-sm md:text-xl uppercase'>{languages.title}</p>
+                        {!selectLanguages && <IoIosArrowDown onClick={()=>setSelectLanguages(!selectLanguages)} className='md:text-xl text-md cursor-pointer'/>}
+                        {selectLanguages && <IoIosArrowUp onClick={()=>setSelectLanguages(!selectLanguages)} className='md:text-xln text-md cursor-pointer'/>}
                 </div>
-                <div className='h-6 bg-[#76767699] w-[2px]'> </div>
+                <div className='h-6 hidden md:block bg-[#76767699] w-[2px]'> </div>
                     {selectLanguages && <div className='absolute z-50 bg-gray-400 top-[72px] p-2 border border-gray-300 rounded-[5px]'>
                          {
                             language.map((item)=>{
@@ -97,7 +97,7 @@ const Navbar = () => {
                             })
                          }
                     </div>}
-                 <Link to={'/sign'}><button className='w-[110px] h-[38px] rounded-[8px] bg-[#009688] text-white text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> 
+                 <Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> 
               </div>
         </div>
     </div>
