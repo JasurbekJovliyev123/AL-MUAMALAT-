@@ -82,7 +82,7 @@ const Navbar = () => {
               <div className='flex items-center gap-8'>
                 <div className='flex items-center gap-1'>
                         <img className='w-6 h-4' src={languages.imgUrl} alt="img" />
-                        <p>{languages.title}</p>
+                        <p className='uppercase'>{languages.title}</p>
                         {!selectLanguages && <IoIosArrowDown onClick={()=>setSelectLanguages(!selectLanguages)} className='text-xl cursor-pointer'/>}
                         {selectLanguages && <IoIosArrowUp onClick={()=>setSelectLanguages(!selectLanguages)} className='text-xl cursor-pointer'/>}
                 </div>
