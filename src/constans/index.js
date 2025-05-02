@@ -131,3 +131,29 @@ export const titles=[
         title:'Develop skills to work as an Islamic finance consultant.'
     }
 ]
+export const videos=[
+    {
+        img:'./video/img1.png',
+        title:'Why Islamic finance?'
+    },
+    {
+        img:'./video/img2.png',
+        title:'What makes Islamic finance unique?'
+    },
+    {
+        img:'./video/img3.png',
+        title:'How is risk managed in Islamic finance?'
+    },
+    {
+        img:'./video/img1.png',
+        title:'Why Islamic finance?'
+    },
+    {
+        img:'./video/img2.png',
+        title:'What makes Islamic finance unique?'
+    },
+    {
+        img:'./video/img3.png',
+        title:'How is risk managed in Islamic finance?'
+    }
+]

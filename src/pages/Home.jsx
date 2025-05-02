@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { cards } from '../constans'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -8,7 +8,18 @@ import { people } from '../constans'
 import { logos } from '../constans';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { videos } from '../constans';
 const Home = () => {
+  const containerRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        left: direction === "left" ? -320 : 320,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
    <>
      <div className='w-full h-[86vh] pt-10 relative bg-[#009688]'>
@@ -72,12 +83,12 @@ const Home = () => {
             >
               {people.map((person, index) => (
                 <SwiperSlide key={index}>
-                  <div className='rounded-[10px] bg-[#D2E6E4] block md:flex items-center p-5 md:p-[35px] pr-[81px]'>
-                    <img src={person.img} alt="person" className="md:mr-8 md:h-auto h-[180px] mx-auto" />
+                  <div className='rounded-[10px] bg-[#D2E6E4] block md:flex items-center p-5 md:p-[35px] pr-7 md:pr-[81px]'>
+                    <img src={person.img} alt="person" className="md:mr-8  md:h-auto h-[180px] mx-auto" />
                     <div>
-                      <p className='font-bold text-center text-lg md:text-[28px] mb-9'>{person.name}</p>
-                      <p className='md:text-[22px] text-center text-md md:leading-[30px] text-[#141B34] mb-9'>{person.desc}</p>
-                      <div className='flex items-center gap-x-8'>
+                      <p className='font-bold text-center text-lg md:text-[28px] mt-2 mb-4 md:mb-9'>{person.name}</p>
+                      <p className='md:text-[22px] text-center text-md md:leading-[30px] text-[#141B34] md:mb-9 mb-5'>{person.desc}</p>
+                      <div className='flex justify-center md:justify-self-start items-center gap-x-8'>
                         {person.links.map((link, idx) => (
                           <img src={link} alt="social" key={idx} className='cursor-pointer' />
                         ))}
@@ -87,7 +98,7 @@ const Home = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-               <h2 className='text-center text-[40px] font-bold text-black mb-[50px] mt-[70px]'>Our Partners and Clients</h2>
+               <h2 className='text-center text-[24px] md:text-[40px] font-bold text-black mb-0 md:mb-[50px] mt-12 md:mt-[70px]'>Our Partners and Clients</h2>
 
             <div>
 
@@ -120,7 +131,7 @@ const Home = () => {
                           >
                             {logos.map((logo, index) => (
                               <SwiperSlide key={index}>
-                                <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
+                                <div className="bg-[#F6F8F9] w-[120px] md:w-[280px] h-[70px] md:h-[139px] flex-wrap gap-x-0 md:gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
                                   <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
                                 </div>
                               </SwiperSlide>
@@ -159,7 +170,7 @@ const Home = () => {
                             >
                               {logos.map((logo, index) => (
                                 <SwiperSlide key={index}>
-                                  <div className="bg-[#F6F8F9] w-[280px] h-[139px] flex-wrap gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
+                                  <div className="bg-[#F6F8F9] w-[120px] md:w-[280px] h-[70px] md:h-[139px] flex-wrap gap-x-0 md:gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
                                     <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
                                   </div>
                                 </SwiperSlide>
@@ -167,14 +178,14 @@ const Home = () => {
                             </Swiper>
                 </div>
 
-                <h2 className='text-center text-[40px] font-bold text-black mb-4 mt-[70px]'>Our Media</h2>
-                <p className='text-[17px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
+                <h2 className='text-center text-[24px] md:text-[40px] font-bold text-black mb-4 mt-[70px]'>Our Media</h2>
+                <p className='md:text-[17px] text-[16px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
 
                 <div className='w-full flex items-center justify-between mb-10'>
-                   <p className='text-[35px] font-medium'>Our media showcase</p>
-                   <div className='flex gap-x-6'>
-                      <p className='w-[50px] h-[50px] rounded-full flex items-center hover:bg-[#009688] text-black hover:text-white justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowLeftLong /></p>
-                      <p className='w-[50px] h-[50px] rounded-full flex hover:bg-[#009688] text-black hover:text-white  items-center justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowRightLong /></p>
+                   <p className='md:text-[35px] text-[20px] font-medium'>Our media showcase</p>
+                   <div className='flex gap-x-3 md:gap-x-6'>
+                      <p className='md:w-[50px] w-10 md:h-[50px] h-10 rounded-full flex items-center hover:bg-[#009688] text-black hover:text-white justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowLeftLong onClick={() => scroll("left")} /></p>
+                      <p className='md:w-[50px] w-10 md:h-[50px] h-10 rounded-full flex hover:bg-[#009688] text-black hover:text-white  items-center justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowRightLong  onClick={() => scroll("right")} /></p>
                    </div>
                 </div>
 
@@ -182,18 +193,30 @@ const Home = () => {
 
             </div>
 
+            <div
+              ref={containerRef}
+              className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+            >
+                  {videos.map((item, index) => (
+                    <div
+                    style={{ backgroundImage: `url(${item.img})` }}
+                      key={index}
+                      className={`md:w-[380px] w-[320px] mx-auto h-[400px] md:h-[510px] relative group bg-[url(${item.img})] bg-center bg-cover rounded-lg overflow-hidden shadow-lg flex-shrink-0`}
+                    >
+                      <div className="p-4 absolute w-[90%]  flex items-center justify-between gap-x-4 bottom-0">
+                        <p className="font-bold w-[70%] text-[20px] text-white">{item.title}</p>
+                        <button className="mt-3 w-[58px] h-[58px] group-hover:bg-[#2198FF] transition rounded-full bg-white text-white flex items-center justify-center">
+                          <img src="./video/circle.png" alt="" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+          </div>
+       </div>
 
-
-
-
-
-
-
-
-
-
-
-
+       <div className="container">
+          <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>Our services </h3>
+          <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
        </div>
    </>
   )
