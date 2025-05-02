@@ -184,8 +184,8 @@ const Home = () => {
                 <div className='w-full flex items-center justify-between mb-10'>
                    <p className='md:text-[35px] text-[20px] font-medium'>Our media showcase</p>
                    <div className='flex gap-x-3 md:gap-x-6'>
-                      <p className='md:w-[50px] w-10 md:h-[50px] h-10 rounded-full flex items-center hover:bg-[#009688] text-black hover:text-white justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowLeftLong onClick={() => scroll("left")} /></p>
-                      <p className='md:w-[50px] w-10 md:h-[50px] h-10 rounded-full flex hover:bg-[#009688] text-black hover:text-white  items-center justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowRightLong  onClick={() => scroll("right")} /></p>
+                      <p onClick={() => scroll("left")}  className='md:w-[50px]  w-10 md:h-[50px] h-10 rounded-full flex items-center hover:bg-[#009688] text-black hover:text-white justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowLeftLong /></p>
+                      <p  onClick={() => scroll("right")}  className='md:w-[50px] w-10 md:h-[50px] h-10 rounded-full flex hover:bg-[#009688] text-black hover:text-white  items-center justify-center bg-[#ECF3F6] cursor-pointer transition-all'><FaArrowRightLong /></p>
                    </div>
                 </div>
 
@@ -214,9 +214,9 @@ const Home = () => {
           </div>
        </div>
 
-       <div className="container">
-          <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>Our services </h3>
-          <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
+       <div className="container mt-[70px]">
+          <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>What students say </h3>
+          <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
        </div>
    </>
   )

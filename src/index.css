@@ -8,7 +8,9 @@
        url('path_to_font/HelveticaNeue.woff') format('woff'),
        url('path_to_font/HelveticaNeue.ttf') format('truetype');
 }
-
+body{
+  overflow-x: hidden;
+}
 .halvetica {
   font-family: 'Helvetica Neue', sans-serif;
 }
