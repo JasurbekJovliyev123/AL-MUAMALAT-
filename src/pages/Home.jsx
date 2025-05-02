@@ -195,7 +195,7 @@ const Home = () => {
 
             <div
               ref={containerRef}
-              className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+              className="flex  container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
             >
                   {videos.map((item, index) => (
                     <div
