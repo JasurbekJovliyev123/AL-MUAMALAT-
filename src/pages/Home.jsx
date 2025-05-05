@@ -1,14 +1,16 @@
 import React, { useRef } from 'react'
-import { cards } from '../constans'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import { people } from '../constans'
 import { logos } from '../constans';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { videos } from '../constans';
+import ImageCarousel from '../components/Carusel';
+import Partners from '../components/Partners';
+import Services from '../components/Services';
+import Jobs from '../components/Jobs';
 const Home = () => {
   const containerRef = useRef(null);
 
@@ -49,20 +51,8 @@ const Home = () => {
              <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>Our services </h3>
              <p className='md:text-[20px] text-[16px] text-[#686868] font-medium text-center halvetica'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
         </div>
-
-         <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 grid-cols-1 mb-[70px]'>
-              { cards.map((card)=>{
-                return <div key={card.title} style={{backgroundColor:card.color}} className='max-w-[320px] mx-auto md:max-w-[380px] h-[280px] md:h-[361px] relative p-5 md:p-[30px] rounded-[10px]'>
-                    <div className='flex items-center gap-5 mb-5'>
-                        <img className='md:w-[85px] w-14 h-14 md:h-[85px]' src={card.imgurl} alt="img" />
-                        <h4 className='md:text-[24px] text-[18px] font-bold open-sans'>{card.title}</h4>
-                        
-                    </div>
-                    <p className='md:text-[17px] text-[14px] font-normal open-sans mb-9'>{card.subtitle}</p>
-                    <button className='md:w-[90%] w-[88%] absolute py-2 md:py-[10px] bottom-5  bg-[#152032] text-white rounded-[10px] open-sans font-semibold cursor-pointer'>Learn more</button>
-                </div>
-              })}
-         </div>
+        <Services/>
+         
 
          
     </div>
@@ -70,74 +60,13 @@ const Home = () => {
        <div className="container pt-0 md:pt-[70px]">
           <h3 className='text-center text-[24px] md:text-[40px] font-bold text-black mb-2.5'>Our Expert Team  </h3>
           <p className='md:text-[17px] text-[16px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
-
-                  <Swiper
-                    modules={[Autoplay]}
-                    slidesPerView={1}
-                    autoplay={{
-                      delay: 4000,
-                      disableOnInteraction: false,
-                    }}
-              loop={true}
-              className="max-w-[980px] mt-[22px] mb-6 mx-auto"
-            >
-              {people.map((person, index) => (
-                <SwiperSlide key={index}>
-                  <div className='rounded-[10px] bg-[#D2E6E4] block md:flex items-center p-5 md:p-[35px] pr-7 md:pr-[81px]'>
-                    <img src={person.img} alt="person" className="md:mr-8  md:h-auto h-[180px] mx-auto" />
-                    <div>
-                      <p className='font-bold text-center text-lg md:text-[28px] mt-2 mb-4 md:mb-9'>{person.name}</p>
-                      <p className='md:text-[22px] text-center text-md md:leading-[30px] text-[#141B34] md:mb-9 mb-5'>{person.desc}</p>
-                      <div className='flex justify-center md:justify-self-start items-center gap-x-8'>
-                        {person.links.map((link, idx) => (
-                          <img src={link} alt="social" key={idx} className='cursor-pointer' />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          <Partners/>
+                 
                <h2 className='text-center text-[24px] md:text-[40px] font-bold text-black mb-0 md:mb-[50px] mt-12 md:mt-[70px]'>Our Partners and Clients</h2>
-
+                
             <div>
 
-                    <div className="max-w-[1200px] mx-auto py-8">
-                          <Swiper
-                            modules={[Autoplay]}
-                            slidesPerView={5}
-                            spaceBetween={20}
-                            loop={true}
-                            autoplay={{
-                              delay: 0,
-                              disableOnInteraction: false,
-                              pauseOnMouseEnter: false,
-                            }}
-                            speed={2000}
-                            breakpoints={{
-                              320: {
-                                slidesPerView: 2,
-                              },
-                              640: {
-                                slidesPerView: 3,
-                              },
-                              768: {
-                                slidesPerView: 4,
-                              },
-                              1024: {
-                                slidesPerView: 4,
-                              }
-                            }}
-                          >
-                            {logos.map((logo, index) => (
-                              <SwiperSlide key={index}>
-                                <div className="bg-[#F6F8F9] w-[120px] md:w-[280px] h-[70px] md:h-[139px] flex-wrap gap-x-0 md:gap-x-6 shadow-md rounded-[10px] flex items-center justify-center p-4">
-                                  <img src={logo} alt="logo" className="max-h-[50px] object-contain" />
-                                </div>
-                              </SwiperSlide>
-                            ))}
-                          </Swiper>
-              </div>
+                   <Jobs/>
 
 
                 <div className="max-w-[1200px] mx-auto py-2">
@@ -218,6 +147,8 @@ const Home = () => {
           <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>What students say </h3>
           <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
        </div>
+
+       <ImageCarousel/>
    </>
   )
 }
