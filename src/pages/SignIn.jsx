@@ -13,7 +13,7 @@ const SignIn = () => {
     console.log(userData);
   }
   return (
-    <div className='max-w-[1300px] mx-auto lg:h-[100vh] h-[1024px] bg-white p-5 flex gap-x-3'>
+    <div className='max-w-[1300px] mx-auto lg:h-[100vh] h-[100vh] bg-white p-5 flex gap-x-3'>
           <div className='md:w-[50%] w-full pt-16 md:pt-20'>
                <div className='flex justify-between w-full items-center mb-10 md:mb-[105px] lg:mb-[25px]'>
                   <NavLink to={'/'}>
