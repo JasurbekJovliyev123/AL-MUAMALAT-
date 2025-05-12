@@ -1,86 +1,140 @@
-import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useAuth } from '../context';
 const Login = () => {
-  const [userLoginData, setuserLoginData] = useState({name:'',parol:'',phoneNumber:''});
+    const navigate = useNavigate();
+
+    const { register, handleSubmit } = useForm()
+    const auth=useAuth()
+          const onSubmit = async (data) => {
+             data.phone_number = phone;
+            const { full_name, password, phone_number } = data;
+
+              try {
+                const res = await auth.register({ full_name, password, phone_number });
+                toast.success(`${res.user.full_name} siz muvaffaqiyatli ro'yxatdan o'tdingiz`);
+                navigate('/');
+              } catch (err) {
+                alert("Ro'yxatdan o'tishda xatolik yuz berdi!");
+              }
+            };
+
   const [phone, setPhone] = useState('');
-  const onChangeData=(e)=>{
-    setuserLoginData((prev)=>{
-      return {...prev,[e.target.name]:e.target.value,phoneNumber:phone}
-    })
-  }
-
-  const onsubmitData=(e)=>{
-    e.preventDefault()
-    console.log(userLoginData);
-  }
-   
   return (
-    <div className='max-w-[1300px] mx-auto lg:h-[100vh] h-[1024px] bg-white p-5 flex '>
-          <div className='lg:w-[50%] w-full pt-8 md:pt-20'>
-               <div className='flex justify-between w-full items-center mb-10 md:mb-[105px] lg:mb-[25px]'>
-                  <NavLink to={'/'}>
-                    <img className='md:w-auto w-[150px]' src="/Logo.svg" alt="" />
-                  </NavLink>
-                  <div  className='flex items-center gap-x-2 md:gap-x-5'>
-                      <div>
-                        <p className='text-[#8F8F8F] text-sm md:text-[20px] inter'>Questions?</p>
-                        <p className='md:text-[30px] text-xl text-[#009688] font-bold inter'>Ask Diyor</p>
-                      </div>
-                        <div className='md:-mr-16 mr-0 z-50 p-2.5 bg-white rounded-full'> 
-                            <img className='md:w-auto w-16'  src="./userimg.png" alt="" />
-                        </div>
-                   </div>
-               </div>
-
-               <h2 className='lg:text-[60px] text-4xl font-bold mb-3 md:mb-0'>Get started</h2>
-               <p className='mb-10 inter text-[21px] lg:text-[22px]  '>Already have an account?  
-                  <span className='text-[#009688] ml-1 inter font-bold lg:text-[22px] text-[18px]'><Link to={'/sign'}>Sign in</Link></span>
-               </p>
-               <form onSubmit={onsubmitData} className='flex flex-col gap-y-6'>
-                  <div className='relative w-[454px] flex items-center'>
-                    <input
-                        className='md:w-[454px] w-[320px] md:px-4 py-3 px-3 lg:py-[14px] rounded-[8px] border-2 border-[#8F8F8F] focus:border-[#4D90FE] focus:ring-2 focus:ring-[#4D90FE]'
-                        type="text"
-                        name='name'
-                        onChange={onChangeData}
-                        placeholder='Enter your name'
-                          />
-                          <img className='absolute right-36 md:right-3' src="./user.png" alt="" />
-                  </div>
-                      <input
-                        className='md:w-[454px] w-[320px] md:px-4 py-3 px-3 lg:py-[14px]  rounded-[8px] border-2 border-[#8F8F8F] focus:border-[#4D90FE] focus:ring-2 focus:ring-[#4D90FE]'
-                        type="password"
-                        onChange={onChangeData}
-                        name='password'
-                        placeholder='password'
-                      />
-                           <div className="relative w-[320px] md:w-[454px]">
-                                <PhoneInput
-                                  country={'uz'}
-                                  value={phone}
-                                  onChange={setPhone}
-                                  className='md:w-[454px] w-[320px] md:px-4 px-3 lg:py-[10px] py-2 rounded-[8px] border-2 border-[#8F8F8F] focus:border-[#4D90FE] focus:ring-2 focus:ring-[#4D90FE]'
-                                  enableSearch
-                                  inputClass="!pl-[100px] py-2 border-none text-base !w-full"
-                                  buttonClass="!left-3 !right-auto border-none absolute z-10"
-                                  containerClass="react-tel-input  w-full"
-                                />
-
-                    
-                        </div>
-                <button type='submit' className='md:w-[454px] w-[320px] cursor-pointer rounded-[8px] lg:py-[14px] py-[8px] text-center inter text-white font-semibold text-[20px] bg-[#009688]'>Login</button>
-               </form>
-              
+    <div className="max-w-[1300px] mx-auto lg:h-screen bg-white p-5 flex flex-col lg:flex-row">
+      
+      <div className="lg:w-1/2 w-full pt-10">
+        <div className="flex justify-between items-center mb-10">
+          <NavLink to="/">
+            <img className="w-[150px]" src="/Logo.svg" alt="Logo" />
+          </NavLink>
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="text-sm text-gray-500">Questions?</p>
+              <p className="text-xl text-[#009688] font-bold">Ask Diyor</p>
+            </div>
+            <div className="p-2 bg-white rounded-full">
+              <img className="w-12" src="./userimg.png" alt="User" />
+            </div>
           </div>
-          <div className='w-[700px] hidden lg:block bg-[#009688] lg:h-[700px] h-full rounded-[40px] lg:pt-20 pt-[132px] text-center'>
-                <img className='mx-auto lg:h-[405px] h-[545px] mb-[63px]' src="./loginimg.png" alt="" />
-                <h3 className='text-white text-center lg:text-[30px] text-[36px] lg:max-w-[550px] max-w-[607px] mx-auto font-bold lg:leading-8 leading-[50px]'>Welcome to Al Muamalat – Empowering Your Journey in Islamic Finance</h3>
-          </div>
+        </div>
+
+        <h2 className="text-4xl lg:text-[60px] font-bold mb-3">Welcome Back</h2>
+        <p className="mb-10 text-lg lg:text-[22px]">
+          Don't have an account yet?{' '}
+          <span className="text-[#009688] font-bold">
+            <Link to="/sigin">Sign in</Link>
+          </span>
+        </p>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-[90%] md:w-[454px]">
+         
+          <input
+            {...register("full_name")}
+            className="w-full px-4 py-3 border-2 border-gray-400 rounded-md focus:ring-2 focus:ring-blue-400"
+            type="text"
+            placeholder="Enter your name"
+          />
+         
+         
+          <input
+             {...register("password")}
+            className="w-full px-4 py-3 border-2 border-gray-400 rounded-md focus:ring-2 focus:ring-blue-400"
+            type="password"
+            placeholder="Enter your password"
+          />
+        
+          
+         
+          <PhoneInput
+            country={'uz'}
+             {...register("phone_number")}
+            value={phone}
+            onChange={(value) => setPhone(value)}
+            enableSearch
+            inputClass="!pl-[100px] py-2 border-none text-base !w-full"
+            buttonClass="!left-3 !right-auto border-none absolute z-10"
+            containerClass="react-tel-input w-full border-2 border-gray-400 rounded-md"
+          />
+
+        
+          <button
+            type="submit"
+            className="bg-[#009688] text-white font-semibold text-lg py-3 rounded-md"
+          >
+            Sign up
+          </button>
+         
+        </form>
+      </div>
+
+   
+      <div className="w-[700px] hidden lg:block bg-[#009688] h-[700px] rounded-[40px] pt-20 text-center">
+        <img className="mx-auto h-[405px] mb-10" src="./loginimg.png" alt="" />
+        <h3 className="text-white text-[30px] font-bold max-w-[550px] mx-auto leading-8">
+          Welcome to Al Muamalat – Empowering Your Journey in Islamic Finance
+        </h3>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
+
+
+
+
+//  const { mutate, isLoading, error } = useMutation({
+//   mutationFn: (loginData) =>
+//     axios
+//       .post('https://api.al-muamalat.uz/api/auth/signup', loginData)
+//       .then((res) => {
+//         console.log(res?.data);
+//         localStorage.setItem('testUserToken', res?.data?.data?.tokens?.accessToken);
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         throw new Error('Authentication failed. Check your login credentials.');
+//       }),
+// });
+
+  // const onSubmit = async (data) => {
+//    const loginPayload = {
+//     username: data.name,
+//     password: data.password,
+//     phoneNumber: phone,
+//   };
+//   console.log(loginPayload);
+  
+//   try {
+//     await mutate(loginPayload);
+//   } catch (error) {
+//     console.error(error);
+//     alert("Login failed. Please check your credentials or try again later.");
+//   }
+// };

@@ -7,9 +7,12 @@ import Finance from './pages/Finance'
 import Contact from './pages/Contact'
 import SignIn from './pages/SignIn'
 import Login from './pages/Login'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 const App = () => {
   const routes=createBrowserRouter([
     {
+      
       path:'/',
       element:<MainLayout/>,
       children:[
@@ -19,7 +22,7 @@ const App = () => {
         },
         {
           path:'/programs',
-          element:<Program/>
+          element:<Program/>,
         },
         {
           path:'/finance',
@@ -33,15 +36,18 @@ const App = () => {
       ]
     },
     {
-      path:'/sign',
+      path:'/signin',
       element:<SignIn/>
     },
     {
-      path:'/login',
+      path:'/signup',
       element:<Login/>
     }
   ])
-  return <RouterProvider router={routes}/>
+  return <>
+             <RouterProvider router={routes}/>
+           <ToastContainer position="top-right" autoClose={3000} />
+   </>
 }
 
 export default App
