@@ -36,7 +36,7 @@ const App = () => {
       ]
     },
     {
-      path:'/signin',
+      path:'/sign',
       element:<SignIn/>
     },
     {
