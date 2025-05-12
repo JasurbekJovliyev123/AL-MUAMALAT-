@@ -17,10 +17,15 @@ const Login = () => {
 
               try {
                 const res = await auth.register({ full_name, password, phone_number });
-                toast.success(`${res.user.full_name} siz muvaffaqiyatli ro'yxatdan o'tdingiz`);
-                navigate('/');
+                if(full_name && password && phone_number){
+                    toast.success(`${res.user.full_name} siz muvaffaqiyatli ro'yxatdan o'tdingiz`);
+                    navigate('/');
+                }else{
+                  toast.error('Barcha malumotlar bor ekanligini tekshiring')
+                }
+                
               } catch (err) {
-                alert("Ro'yxatdan o'tishda xatolik yuz berdi!");
+                 toast.error("Ro'yxatdan o'tishda xatolik yuz berdi!");
               }
             };
 
@@ -48,7 +53,7 @@ const Login = () => {
         <p className="mb-10 text-lg lg:text-[22px]">
           Don't have an account yet?{' '}
           <span className="text-[#009688] font-bold">
-            <Link to="/sigin">Sign in</Link>
+            <Link to="/sign">Sign in</Link>
           </span>
         </p>
 
@@ -77,7 +82,7 @@ const Login = () => {
             value={phone}
             onChange={(value) => setPhone(value)}
             enableSearch
-            inputClass="!pl-[100px] py-2 border-none text-base !w-full"
+            inputClass="!pl-[100px] py-6 border-none text-base !w-full"
             buttonClass="!left-3 !right-auto border-none absolute z-10"
             containerClass="react-tel-input w-full border-2 border-gray-400 rounded-md"
           />
@@ -109,7 +114,7 @@ export default Login;
 
 
 
-//  const { mutate, isLoading, error } = useMutation({
+
 //   mutationFn: (loginData) =>
 //     axios
 //       .post('https://api.al-muamalat.uz/api/auth/signup', loginData)

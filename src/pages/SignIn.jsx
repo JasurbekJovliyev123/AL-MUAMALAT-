@@ -19,11 +19,15 @@ const SignIn = () => {
     try {
       const res = await auth.login({
         password,
-        phone_number: phoneNumber, // state orqali yuboramiz
+        phone_number: phoneNumber, 
       });
-
-      toast.success(`${res.user.full_name} siz muvaffaqiyatli akkauntingizga kirdingiz`);
-      navigate('/');
+      if(password && phoneNumber){
+              toast.success(`${res.user.full_name} siz muvaffaqiyatli akkauntingizga kirdingiz`);
+              navigate('/');
+      }else{
+           toast.error("Foydalanuvchi topilmadi yoki login ma'lumotlari noto‘g‘ri.");
+      }
+    
     } catch (err) {
       alert(err?.response?.data?.message || "Login failed");
     }
@@ -32,7 +36,25 @@ const SignIn = () => {
   return (
     <div className='max-w-[1300px] mx-auto lg:h-[100vh] h-[1024px] bg-white p-5 flex gap-x-3'>
       <div className='md:w-[50%] w-full pt-16 md:pt-20'>
-        {/* ... HEADER ... */}
+   
+        <div className="flex justify-between items-center mb-10">
+          <NavLink to="/">
+            <img className="w-[150px]" src="/Logo.svg" alt="Logo" />
+          </NavLink>
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="text-sm text-gray-500">Questions?</p>
+              <p className="text-xl text-[#009688] font-bold">Ask Diyor</p>
+            </div>
+            <div className="p-2 bg-white rounded-full">
+              <img className="w-12" src="./userimg.png" alt="User" />
+            </div>
+          </div>
+        </div>
+
+        
+
+          
         <h2 className='mb-10 text-4xl lg:text-[60px] font-bold'>Get started</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-6'>
@@ -44,15 +66,17 @@ const SignIn = () => {
             placeholder='password'
           />
 
-          <PhoneInput
+          <div className='max-w-[450px]'>
+                            <PhoneInput
             country={'uz'}
             value={phoneNumber}
-            onChange={setPhoneNumber} // MUHIM
+            onChange={setPhoneNumber} 
             enableSearch
-            inputClass="!pl-[70px] max-w-[400px] py-2 border-none text-base !w-full"
+            inputClass="!pl-[70px] max-w-[400px] py-6 border-none text-base !w-full"
             buttonClass="!left-3 !right-auto border-none absolute z-10"
             containerClass="react-tel-input w-full border-2 border-gray-400 rounded-md"
           />
+          </div>
 
           <button
             type='submit'
