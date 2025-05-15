@@ -11,6 +11,7 @@ import ImageCarousel from '../components/Carusel';
 import Partners from '../components/Partners';
 import Services from '../components/Services';
 import Jobs from '../components/Jobs';
+import Consultation from '../components/Consultation';
 const Home = () => {
   const containerRef = useRef(null);
 
@@ -124,7 +125,7 @@ const Home = () => {
 
             <div
               ref={containerRef}
-              className="flex  container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+              className="flex mb-[100px] container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
             >
                   {videos.map((item, index) => (
                     <div
@@ -143,12 +144,13 @@ const Home = () => {
           </div>
        </div>
 
-       <div className="container mt-[70px]">
+       {/* <div className="container my-[70px]">
           <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>What students say </h3>
           <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
-       </div>
+       </div> */}
 
-       <ImageCarousel/>
+       {/* <ImageCarousel/> */}
+       <Consultation className='mt-[70px]'/>
    </>
   )
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { titles } from '../constans'
+import Consultation from '../components/Consultation'
+import CoucesSlider from '../components/Courses'
 const Program = () => {
   return (
     <div className='container pt-[70px]'>
@@ -33,12 +35,21 @@ const Program = () => {
          </div>
         
 
-        <h2 className='text-center font-bold text-[40px] mt-[70px]'>Brief information about the course</h2>
-        <div>
-                      
+        <h2 className='text-center font-bold text-[40px] my-[70px]'>Brief information about the course</h2>
+       
+        <div className='max-w-[574px] mx-auto'>
+              <p className='mb-[10px] text-[40px] font-bold text-black text-center'>Most Popular Course</p>        
+              <p className='text-[20px] font-medium text-center text-[#686868]'>Expert guidance for managing funds in alignment with Islamic principles, helping you make informed, halal investment decisions.</p>
         </div>
+         <CoucesSlider/>
 
-         
+         <div className='flex h-[864px] max-w-[1070px] shadow-2xl mx-auto justify-center my-[70px]'>
+            <div className='flex-1 bg-[#009688]  px-[79px] py-[88px]'>
+              <h3 className='text-[36px] font-bold text-white'>Our Services</h3>
+            </div>
+            <div className='flex-1 bg-[#FFFFFF]'></div>
+         </div>
+         <Consultation/>
     </div>
   )
 }
