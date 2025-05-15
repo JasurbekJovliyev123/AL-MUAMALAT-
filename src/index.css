@@ -53,6 +53,18 @@ body{
   border-radius: 50%;
   background-color: #152032;
 }
-
+.paymenttitle{
+  position: relative;
+}
+.paymenttitle::after{
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #009688;
+  border-radius: 50%;
+  left: -20px; 
+  top: 10px;
+}
 
 

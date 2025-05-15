@@ -3,14 +3,14 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 const Consultation = () => {
   return (
-    <div className='container flex h-[465px] mt-[70px]'>
-        <div className='max-w-[709px] bg-[#FAE9D3] p-[46px]'>
-            <h3 className='font-bold text-[32px] text-center mb-5 text-[#D28527]'>Workshops and Spiritual Development</h3>
-            <p className='font-semibold text-[22px]  mb-5 text-[#D28527]'>Participate in our weekly workshops focused on Islamic studies and spiritual growth. These sessions are designed to help you strengthen your connection with faith and acquire essential skills for daily life</p>
+    <div className='container md:flex block h-auto md:h-[465px] my-[70px]'>
+        <div className='max-w-[709px] bg-[#FAE9D3] p-6 md:p-[46px]'>
+            <h3 className='font-bold text-xl md:text-[32px] text-center mb-3 md:mb-5 text-[#D28527]'>Workshops and Spiritual Development</h3>
+            <p className='font-semibold text-[16px] md:text-[22px]  mb-5 text-[#D28527]'>Participate in our weekly workshops focused on Islamic studies and spiritual growth. These sessions are designed to help you strengthen your connection with faith and acquire essential skills for daily life</p>
         </div>
-        <div className='w-[470px] bg-[#F9F7F3] h-full p-[46px]'>
-                <h4 className='text-#152032] font-bold mb-1.5 text-[30px]'>Free consultation</h4>
-                <p className='text-[16px] mb-7 font-normal'>Leave your phone number, and we will reach out to provide you with complete information about our courses. </p>
+        <div className='max-w-[470px] bg-[#F9F7F3] h-full p-6 md:p-[46px]'>
+                <h4 className='text-#152032] font-bold mb-1.5 text-xl md:text-[30px]'>Free consultation</h4>
+                <p className='md:text-[16px] text-sm mb-7 font-normal'>Leave your phone number, and we will reach out to provide you with complete information about our courses. </p>
 
                 <form className="flex flex-col gap-6 w-[90%] md:w-[374px]">
          
@@ -37,7 +37,7 @@ const Consultation = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-[#009688] text-white font-semibold text-lg py-3 rounded-md"
+                            className="bg-[#009688] text-white font-semibold text-lg py-1.5 md:py-3 rounded-md"
                         >
                             Submit
                         </button>

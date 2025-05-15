@@ -232,3 +232,9 @@ export const users=[
         occupation:'Web designer'
     }
 ]
+export const titles1=['Space for creative ideas',
+'Engaging and fun curriculum',
+'Professional teaching methods',
+'Learn from AI & Data Science experts',
+'Courses by IIT, NIT, and IIM alumni',
+'UK certification upon completion','Personalized one-to-one training']

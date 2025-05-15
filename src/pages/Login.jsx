@@ -8,12 +8,11 @@ import { toast } from 'react-toastify';
 import { useAuth } from '../context';
 const Login = () => {
     const navigate = useNavigate();
-
     const { register, handleSubmit } = useForm()
     const auth=useAuth()
           const onSubmit = async (data) => {
              data.phone_number = phone;
-            const { full_name, password, phone_number } = data;
+             const { full_name, password, phone_number } = data;
 
               try {
                 const res = await auth.register({ full_name, password, phone_number });

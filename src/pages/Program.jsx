@@ -2,6 +2,7 @@ import React from 'react'
 import { titles } from '../constans'
 import Consultation from '../components/Consultation'
 import CoucesSlider from '../components/Courses'
+import Payments from './Payments'
 const Program = () => {
   return (
     <div className='container pt-[70px]'>
@@ -43,12 +44,7 @@ const Program = () => {
         </div>
          <CoucesSlider/>
 
-         <div className='flex h-[864px] max-w-[1070px] shadow-2xl mx-auto justify-center my-[70px]'>
-            <div className='flex-1 bg-[#009688]  px-[79px] py-[88px]'>
-              <h3 className='text-[36px] font-bold text-white'>Our Services</h3>
-            </div>
-            <div className='flex-1 bg-[#FFFFFF]'></div>
-         </div>
+         <Payments/>
          <Consultation/>
     </div>
   )
