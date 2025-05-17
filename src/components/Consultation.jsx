@@ -3,7 +3,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 const Consultation = () => {
   return (
-    <div className='container md:flex block h-auto md:h-[465px] my-[70px]'>
+    <div className='container md:flex block h-auto md:h-[465px] my-[70px] mt-24'>
         <div className='max-w-[709px] bg-[#FAE9D3] p-6 md:p-[46px]'>
             <h3 className='font-bold text-xl md:text-[32px] text-center mb-3 md:mb-5 text-[#D28527]'>Workshops and Spiritual Development</h3>
             <p className='font-semibold text-[16px] md:text-[22px]  mb-5 text-[#D28527]'>Participate in our weekly workshops focused on Islamic studies and spiritual growth. These sessions are designed to help you strengthen your connection with faith and acquire essential skills for daily life</p>

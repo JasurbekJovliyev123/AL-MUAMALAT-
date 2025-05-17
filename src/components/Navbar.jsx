@@ -7,9 +7,9 @@ import { programs } from '../constans';
 import { useAuth } from '../context';
 import { FaUserGraduate } from "react-icons/fa";
 const Navbar = () => {
-  let auth=useAuth()
-  const [userauth,setUserauth]=useState(auth)
-  console.log(auth);
+  // let auth=useAuth()
+  // const [userauth,setUserauth]=useState(auth)
+  // console.log(auth);
   const selectLanguagefunc = () => {
     try {
       const storedLang = localStorage.getItem('lang');
@@ -102,12 +102,8 @@ const Navbar = () => {
                             })
                          }
                     </div>}
-                 {!useAuth && <Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> }
-                 {
-                  userauth && <FaUserGraduate onClick={()=>{
-                    setUserauth(null)
-                  }} className='text-2xl text-[#009688] cursor-pointer'/>
-                 }
+                 <Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> 
+                 
               </div>
         </div>
     </div>

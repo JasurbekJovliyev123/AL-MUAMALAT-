@@ -7,11 +7,8 @@ import { logos } from '../constans';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { videos } from '../constans';
-import ImageCarousel from '../components/Carusel';
-import Partners from '../components/Partners';
-import Services from '../components/Services';
-import Jobs from '../components/Jobs';
-import Consultation from '../components/Consultation';
+import {Consultation,Jobs,Partners,Services} from '../components/index'
+import Questions from '../components/Questions';
 const Home = () => {
   const containerRef = useRef(null);
 
@@ -58,7 +55,7 @@ const Home = () => {
          
     </div>
 
-       <div className="container pt-0 md:pt-[70px]">
+       <div className="container  pt-0 md:py-[70px]">
           <h3 className='text-center text-[24px] md:text-[40px] font-bold text-black mb-2.5'>Our Expert Team  </h3>
           <p className='md:text-[17px] text-[16px] max-w-[574px] mx-auto text-[#686868] mb-[50px] font-medium text-center'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
           <Partners/>
@@ -123,9 +120,7 @@ const Home = () => {
 
             </div>
 
-            <div
-              ref={containerRef}
-              className="flex mb-[100px] container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+            <div ref={containerRef} className="flex  container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
             >
                   {videos.map((item, index) => (
                     <div
@@ -144,13 +139,18 @@ const Home = () => {
           </div>
        </div>
 
-       {/* <div className="container my-[70px]">
+       <div className="container pb-[70px] my-[70px]">
           <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>What students say </h3>
           <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
-       </div> */}
-
+       </div>
+           <h1 className='text-3xl text-center mb-[70px]'>IMGCARUSELx</h1>
        {/* <ImageCarousel/> */}
-       <Consultation className='mt-[70px]'/>
+       <div className="container pb-[70px] my-[70px]">
+          <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>Frequently asked questions</h3>
+          <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>If you have any further questions, please contact us </p>
+       </div>
+       <Questions/>
+       <Consultation className='mt-[700px]'/>
    </>
   )
 }
