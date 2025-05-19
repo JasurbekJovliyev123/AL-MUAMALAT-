@@ -101,7 +101,7 @@ const Navbar = () => {
                             })
                          }
                     </div>}
-                 {userToken ? <Link to={'/profile'}><p>profil</p></Link>:<Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link>}
+                 {userToken ? <Link to={'/profile'}><p className='px-6 py-2 rounded-2xl bg-blue-800 text-white'>profil</p></Link>:<Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link>}
                  
                  
               </div>
