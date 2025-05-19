@@ -4,13 +4,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { language } from '../constans';
 import { programs } from '../constans';
-import { useAuth } from '../context';
 import { FaUserGraduate } from "react-icons/fa";
 const Navbar = () => {
-  // let auth=useAuth()
-  // const [userauth,setUserauth]=useState(auth)
-  // console.log(auth);
   const userToken=localStorage.getItem('testUserToken')
+  console.log(userToken);
+  
   const selectLanguagefunc = () => {
     try {
       const storedLang = localStorage.getItem('lang');
@@ -103,9 +101,8 @@ const Navbar = () => {
                             })
                          }
                     </div>}
-                 {userToken ?<Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> :
-                 <p>Profile</p>
-                 }
+                 {userToken ? <Link to={'/profile'}><p>profil</p></Link>:<Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link>}
+                 
                  
               </div>
         </div>

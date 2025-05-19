@@ -1,6 +1,13 @@
 import React from 'react'
+import { request } from '../services/Request'
 
 const Profile = () => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      request.get('/users/me')
+
+  })
   return (
     <div className='pt-[100px] container'>
         <div className='flex items-center gap-x-6 mb-7'>

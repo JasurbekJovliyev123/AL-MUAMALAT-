@@ -18,7 +18,7 @@ const Login = () => {
                 const res = await auth.register({ full_name, password, phone_number });
                 if(full_name && password && phone_number){
                     toast.success(`${res.user.full_name} siz muvaffaqiyatli ro'yxatdan o'tdingiz`);
-                    navigate('/');
+                    navigate('/profile');
                 }else{
                   toast.error('Barcha malumotlar bor ekanligini tekshiring')
                 }
