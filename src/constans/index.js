@@ -238,3 +238,66 @@ export const titles1=['Space for creative ideas',
 'Learn from AI & Data Science experts',
 'Courses by IIT, NIT, and IIM alumni',
 'UK certification upon completion','Personalized one-to-one training']
+
+export const allCourses=[
+    {
+        id:1,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+    {
+        id:2,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+    {
+        id:3,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+    {
+        id:4,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+    {
+        id:5,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+    {
+        id:6,
+        img:'./courses/img1.png',
+        studenst:40,
+        startDate:'21 December 2024',
+        title:'Islamic Fund Management' ,
+        description:'We assist retail and institutional clients in managing their funds in accordance with Islamic principles, providing practical advice for making halal investments.',
+        newPrice:250,
+        price:300
+    },
+]

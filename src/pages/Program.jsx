@@ -3,6 +3,7 @@ import { titles } from '../constans'
 import Consultation from '../components/Consultation'
 import CoucesSlider from '../components/Courses'
 import Payments from './Payments'
+import Allcourses from '../components/Allcourses'
 const Program = () => {
   return (
     <div className='container pt-[70px]'>
@@ -45,7 +46,9 @@ const Program = () => {
          <CoucesSlider/>
 
          <Payments/>
+         <Allcourses/>
          <Consultation/>
+         
     </div>
   )
 }
