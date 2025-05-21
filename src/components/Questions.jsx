@@ -31,12 +31,12 @@ export default function Questions() {
   };
 
   return (
-    <div className="container grid grid-cols-2 gap-x-5 mx-auto p-4 gap-y-2">
+    <div className="container grid grid-cols-1 md:grid-cols-2 gap-x-5 mx-auto md:p-4 p-2 gap-y-2">
       {faqs.map((faq, index) => (
         <div key={index} className="border w-full rounded shadow-sm">
           <button
             onClick={() => toggle(index)}
-            className="w-full text-left px-4 py-[30px] font-medium text-gray-800 flex justify-between items-center"
+            className="w-full text-left px-4 py-4 md:py-[30px] font-medium text-gray-800 flex justify-between items-center"
           >
             {faq.question}
             <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
