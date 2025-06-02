@@ -9,7 +9,6 @@ const Profile = () => {
     queryKey: ['userData'],
     queryFn: () =>
       request.get('https://api.al-muamalat.uz/api/users/me')
-
   })
   const { register, handleSubmit } = useForm();
 

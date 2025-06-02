@@ -1,7 +1,12 @@
 import React from 'react'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import MainLayout from './layout/MainLayout'
-import {Contact,Finance,Home,International,Login,Payments,Profile,SignIn,Program} from './pages/index'
+import Home from './pages/Home'
+import Program from './pages/Program'
+import Finance from './pages/Finance'
+import Contact from './pages/Contact'
+import SignIn from './pages/SignIn'
+import Login from './pages/Login'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 const App = () => {
@@ -16,7 +21,7 @@ const App = () => {
           element:<Home/>
         },
         {
-          path:'/programs',
+          path:'/programs/:id',
           element:<Program/>,
         },
         {
@@ -27,10 +32,7 @@ const App = () => {
           path:'/contact',
           element:<Contact/>
         },
-        {
-          path:'/profile',
-          element:<Profile/>
-        }
+        
       ]
     },
     {

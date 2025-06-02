@@ -1,6 +1,46 @@
 import React from 'react'
 import { titles1 } from '../constans'
-const Payments = () => {
+import { useQuery } from '@tanstack/react-query';
+import { request } from '../services/request';
+import { useMutation } from '@tanstack/react-query';
+import { get } from 'lodash';
+const Payments = ({id}) => {
+
+    const { isPending, error, data } = useQuery({
+    queryKey: ['userData'],
+    queryFn: () =>
+      request.get('/users/me')
+  })   
+  const {mutate}=useMutation(async (payload)=>{
+    return await request.post('/courses/user',payload)
+    .then((res)=>{console.log(res?.data?.data)
+      request.get(`/courses/purchase/${res?.data?.data?.id}`)
+     .then((response) => {
+       const url =get(response, "data.data.data"); 
+
+      if (url) {
+          const aTag = document.createElement("a");
+          aTag.href = url; 
+          aTag.target = "_blank";
+          aTag.rel = "noopener noreferrer";
+
+        document.body.appendChild(aTag);
+        aTag.click();
+    }
+  })
+  .catch((err) => {
+      console.log(err);
+  })
+
+  })
+  })
+  const onSubmit=()=>{
+    const submitData={
+        course_id:id,
+        user_id:data?.data?.data?.user_id
+    }
+    mutate(submitData)
+  }
   return (
     <div className='flex h-[864px] max-w-[1070px] shadow-2xl mx-auto justify-center my-[70px]'>
             <div className='flex-1 bg-[#009688]  px-[79px] py-[88px]'>
@@ -48,7 +88,7 @@ const Payments = () => {
                         <li className='paymenttitle text-[18px]'>{title}</li>
                     ))}
                 </ul>
-                <button className='py-5 px-12 bg-[#009688] rounded-[8px] text-[18px] font-bold text-white cursor-pointer'>Purchase Now</button>
+                <button type='submit' onClick={()=>onSubmit()} className='py-5 px-12 bg-[#009688] rounded-[8px] text-[18px] font-bold text-white cursor-pointer'>Purchase Now</button>
             </div>
      </div>
   )

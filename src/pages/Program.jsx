@@ -4,11 +4,24 @@ import Consultation from '../components/Consultation'
 import CoucesSlider from '../components/Courses'
 import Payments from './Payments'
 import Allcourses from '../components/Allcourses'
+import { useQuery } from '@tanstack/react-query';
+import { request } from '../services/request'
+import { useParams } from 'react-router-dom'
 const Program = () => {
+  const { data } = useQuery({
+    queryKey: ['aboutCourseData'],
+    queryFn: () =>
+      request.get('https://api.al-muamalat.uz/api/courses/main')
+  })
+  const {id} =useParams()
+  const aboutData=data?.data?.data?.find((item)=>item?.course_id==id)
   return (
     <div className='container pt-[70px]'>
-         <p className='text-[#152032] font-bold text-[40px] text-center mb-5'>International educational programs</p>
-         <p className='text-[22px] max-w-[542px] mx-auto leading-[30px] text-center text-[#686868] mb-[30px]'>Al Muamalat Education's international study programs offer an in-depth learning experience at leading Islamic financial institutions around the world.</p>
+         <p className='text-[#152032] font-bold text-[40px] text-center mb-5'>{aboutData?.name_en}</p>
+         <p
+          className='text-[22px]  mx-auto leading-[30px]  text-[#686868] mb-[30px]'
+          dangerouslySetInnerHTML={{ __html: aboutData?.description_uz}}
+        ></p>
 
          <div className='flex items-center mt-[30px] mb-[70px] gap-x-5'>
             <div className='bg-[#F3F8FF] py-9 px-[33px] h-[590px] rounded-[10px] w-[580px]'>
@@ -45,7 +58,7 @@ const Program = () => {
         </div>
          <CoucesSlider/>
 
-         <Payments/>
+         <Payments id={id}/>
          <Allcourses/>
          <Consultation/>
          
