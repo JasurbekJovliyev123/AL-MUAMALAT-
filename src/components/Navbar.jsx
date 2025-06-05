@@ -2,17 +2,31 @@ import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-import { language } from '../constans';
 import { useQuery } from '@tanstack/react-query';
 import { request } from '../services/request';
+import uzb from '../assets/uzb.svg.png'
+import eng from '../assets/english.png'
 const Navbar = () => {
+  const language=[
+    {
+        imgUrl:eng,
+        title:'ENG'
+    },
+    {
+        imgUrl:uzb,
+        title:'Uzb'
+    },  
+]
    const { isPending, error, data } = useQuery({
     queryKey: ['courseData'],
     queryFn: () =>
       request.get('https://api.al-muamalat.uz/api/courses/main')
   })
 
+  const userToken=localStorage.getItem('testUserToken')
+  console.log(userToken);
   
+   
   const selectLanguagefunc = () => {
     try {
       const storedLang = localStorage.getItem('lang');
@@ -57,7 +71,7 @@ const Navbar = () => {
                 </li>
                 <li>
                      {/* <NavLink to={'/programs'}>*/}
-                      <div  className='open-sans  font-semibold flex gap-x-1 items-center text-[#686868]'>
+                      <div onClick={()=>onModal()} className='open-sans cursor-pointer font-semibold flex gap-x-1 items-center text-[#686868]'>
                            <span>Programs</span>
                           {!openModal && <IoIosArrowDown onClick={()=>onModal()} className='text-xl cursor-pointer'/>}
                           {openModal && <IoIosArrowUp onClick={()=>onModal()} className='text-xl cursor-pointer'/>} 
@@ -70,7 +84,7 @@ const Navbar = () => {
                 <NavLink
                   to={`/programs/${item?.course_id}`}
                     key={item.id}
-                    onClick={() => onSelect(item?.course_id)}
+                    onClick={() => {onSelect(item?.course_id)}}
                     className={`text-[15px] ${
                     selectText ? 'text-[#009688]' : 'text-[#686868]'
                     } hover:text-[#009688] cursor-pointer`}
@@ -108,7 +122,7 @@ const Navbar = () => {
                             })
                          }
                     </div>}
-                 <Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> 
+                 {!userToken ? <Link to={'/sign'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Sign in</button>  </Link> :<Link to={'/profile'}><button className='md:w-[110px] w-[80px] h-7 md:h-[38px] rounded-[8px] bg-[#009688] text-white text-sm md:text-[15px] flex items-center justify-center open-sans font-semibold cursor-pointer'>Profile</button>  </Link> }
               </div>
         </div>
     </div>

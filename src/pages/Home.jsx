@@ -9,6 +9,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { videos } from '../constans';
 import {Consultation,Jobs,Partners,Services} from '../components/index'
 import Questions from '../components/Questions';
+import TestimonialCarousel from '../components/TestimonalsCarusel';
 const Home = () => {
   const containerRef = useRef(null);
 
@@ -120,13 +121,13 @@ const Home = () => {
 
             </div>
 
-            <div ref={containerRef} className="flex  container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+            <div ref={containerRef} className="flex no-scrollbar container gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
             >
                   {videos.map((item, index) => (
                     <div
                     style={{ backgroundImage: `url(${item.img})` }}
                       key={index}
-                      className={`md:w-[380px] w-[320px] mx-auto h-[400px] md:h-[510px] relative group bg-[url(${item.img})] bg-center bg-cover rounded-lg overflow-hidden shadow-lg flex-shrink-0`}
+                      className={`md:w-[380px] no-scrollbar w-[320px] mx-auto h-[400px] md:h-[510px] relative group bg-[url(${item.img})] bg-center bg-cover rounded-lg overflow-hidden shadow-lg flex-shrink-0`}
                     >
                       <div className="p-4 absolute w-[90%]  flex items-center justify-between gap-x-4 bottom-0">
                         <p className="font-bold w-[70%] text-[20px] text-white">{item.title}</p>
@@ -143,7 +144,9 @@ const Home = () => {
           <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>What students say </h3>
           <p className='md:text-[20px] max-w-[574px] mx-auto text-[16px] text-[#686868] font-medium text-center halvetica'>Our team consists of seasoned professionals with extensive experience in Islamic finance and management. Each member brings a unique set of skills and expertise.</p>
        </div>
-           <h1 className='text-3xl text-center mb-[70px]'>IMGCARUSELx</h1>
+           {/* <h1 className='text-3xl text-center mb-[70px]'>IMGCARUSELx</h1>
+            */}
+            <TestimonialCarousel/>
        {/* <ImageCarousel/> */}
        <div className="container pb-[70px] my-[70px]">
           <h3 className='text-center text-[24px] md:text-[40px] font-bold halvetica text-black mb-2.5'>Frequently asked questions</h3>

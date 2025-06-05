@@ -1,13 +1,4 @@
-export const language=[
-    {
-        imgUrl:'./english.png',
-        title:'ENG'
-    },
-    {
-        imgUrl:'./uzb.svg.png',
-        title:'Uzb'
-    },  
-]
+
 export const logos=[
     './logo1.png',
     './logo2.png',

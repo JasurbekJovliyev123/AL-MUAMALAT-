@@ -6,6 +6,7 @@ import Program from './pages/Program'
 import Finance from './pages/Finance'
 import Contact from './pages/Contact'
 import SignIn from './pages/SignIn'
+import Profile from './pages/Profile'
 import Login from './pages/Login'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -32,7 +33,10 @@ const App = () => {
           path:'/contact',
           element:<Contact/>
         },
-        
+        {
+          path:'/profile',
+          element:<Profile/>
+        }
       ]
     },
     {

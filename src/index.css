@@ -12,6 +12,13 @@
 body{
   overflow-x: hidden;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .halvetica {
   font-family: 'Helvetica Neue', sans-serif;
 }
@@ -53,6 +60,13 @@ body{
   height: 10px;
   border-radius: 50%;
   background-color: #152032;
+}
+@media (max-width:500px) {
+ .list-item::before{
+  top: 8px;
+  width: 8px;
+  height: 8px;
+ } 
 }
 .paymenttitle{
   position: relative;

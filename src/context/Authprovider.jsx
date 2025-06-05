@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useState } from "react";
-import { request } from "../services/Request.jsx";
+import { request } from "../services/request";
 
 const defaultProvider = {
     loading: true,
