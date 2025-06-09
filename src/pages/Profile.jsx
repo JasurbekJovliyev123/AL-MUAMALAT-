@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { request } from '../services/Request'
+import { request } from '../services/request'
 import { useQuery } from '@tanstack/react-query'
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
@@ -16,8 +16,7 @@ const Profile = () => {
       mutationFn: (submitData) => {
           return request.put(`https://api.al-muamalat.uz/api/users/${data?.data?.data?.user_id}`, submitData)
               .then((response) => {
-                console.log(response?.data);
-                refetch()
+                console.log(response?.data)
               });
       },
   });
@@ -42,7 +41,7 @@ const Profile = () => {
            <div className='w-full flex items-center profileBgcolor py-4 px-6 rounded-2xl justify-between'>
               <div className='flex items-center  gap-x-6'>
              
-                <img src={`https://api.al-muamalat.uz/api/uploads/images/${data?.data?.data?.image_src}`} alt="" />
+                <img className='w-[60px] h-[60px]' src={`https://api.al-muamalat.uz/api/uploads/images/${data?.data?.data?.image_src}`} alt="" />
                 <div>
                 <p className='text-[24px] text-white font-semibold'>{data?.data?.data?.full_name}</p>
                 <p className='text-[16px] text-white font-semibold'>+{data?.data?.data?.phone_number}</p>

@@ -2,37 +2,37 @@ import axios from "axios";
 
 const request = axios.create({
     headers: {
-        "Content-Type": "application/json, multipart/form-data"
+        "Content-Type": "application/json, multipart/form-data",
     },
     baseURL: "https://api.al-muamalat.uz/api",
-    params: {}  
-})
-
+    params: {}
+});
 request.interceptors.request.use(
     (response) => {
         const token = localStorage.getItem("testUserToken")
         if (token) {
-            response.headers['Authorization'] = `Bearer ${token}`
+            response.headers.Authorization = `Bearer ${token}`;
         }
-        return response
+        return response;
     },
     (error) => {
-        console.log(error)
-        return Promise.reject(error)
+        console.log(error);
+
+        return Promise.reject(error);
     }
 )
 
 request.interceptors.response.use(
     (response) => {
-        return response
+        return response;
     },
     (error) => {
-        const statusCode = error?.response
-        if (statusCode === 401) {
-            window.localStorage.clear()
+        const statusCose = error?.response
+        if (statusCose === 401) {
+            window.localStorage.clear();
         }
-        return Promise.reject(error)
+        return Promise.reject(error);
     }
-)
+);
 
-export { request }
+export {request}

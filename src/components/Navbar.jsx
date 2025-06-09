@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -25,8 +25,9 @@ const Navbar = () => {
 
   const userToken=localStorage.getItem('testUserToken')
   console.log(userToken);
-  
+   const modalRef = useRef(null);
    
+
   const selectLanguagefunc = () => {
     try {
       const storedLang = localStorage.getItem('lang');
@@ -50,7 +51,23 @@ const Navbar = () => {
      
       
     }
+      useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setOpenModal(false);
+      }
+    };
 
+    if (openModal) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openModal]);
     const onSelect=(id)=>{
         data?.data?.data?.map((item)=>{
             if(item.id===id){
@@ -77,22 +94,23 @@ const Navbar = () => {
                           {openModal && <IoIosArrowUp onClick={()=>onModal()} className='text-xl cursor-pointer'/>} 
                       </div>
                      {openModal && (
-                <div
-                    className={`absolute top-20 transition-all duration-300 ease-in-out origin-top  p-4 border-2 rounded-[5px] shadow-2xl max-w-[297px] z-50 border-gray-500 bg-white opacity-100 scale-100 visible`}
-                >
-                {data?.data?.data?.map((item) => (
-                <NavLink
-                  to={`/programs/${item?.course_id}`}
-                    key={item.id}
-                    onClick={() => {onSelect(item?.course_id)}}
-                    className={`text-[15px] ${
-                    selectText ? 'text-[#009688]' : 'text-[#686868]'
-                    } hover:text-[#009688] cursor-pointer`}
-                >
-                    <p className='w-full mb-2 border-b pb-2'>{item.name_en}</p>
-                </NavLink>
-                ))}
-        </div>
+  <div
+    ref={modalRef}
+    className="absolute top-20 transition-all duration-300 ease-in-out origin-top p-4 border-2 rounded-[5px] shadow-2xl max-w-[297px] z-50 border-gray-500 bg-white opacity-100 scale-100 visible"
+  >
+    {data?.data?.data?.map((item) => (
+      <NavLink
+        to={`/programs/${item?.course_id}`}
+        key={item.id}
+        onClick={() => { onSelect(item?.course_id) }}
+        className={`text-[15px] ${
+          selectText ? 'text-[#009688]' : 'text-[#686868]'
+        } hover:text-[#009688] cursor-pointer`}
+      >
+        <p className="w-full mb-2 border-b pb-2">{item.name_en}</p>
+      </NavLink>
+    ))}
+  </div>
 )}
                      {/* </NavLink> */}
                 </li>
